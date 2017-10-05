@@ -33,7 +33,7 @@ model.eval = function(x, y, z) {
     var cap3 = Operations.rBUnion(cap1, cap2, 0.1, 0.1, 0.1);
 
     // tassel
-    center = [0.0, 2.2, -3.9];
+    center = [0.0, -1.5, -3.4];
     var tassel = Primitives.sphere(x, y, z, center, 0.8);
     var cap = Operations.rUnion(cap3, brim);
     cap = Operations.rUnion(cap, tassel);
