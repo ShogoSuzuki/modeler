@@ -6,3 +6,36 @@ body
 	margin: 0px;
 	overflow: hidden;
 }
+
+#textarea {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	bottom: 100px;
+	right: 0;
+	resize: none;
+	background: rgba(255, 255, 255, 0.5);
+
+	width:  40%;
+	font-weight: normal;
+}
+
+button.run {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding:  10px 30px;
+	border-style: none;
+	position: absolute;
+	background: rgba(0, 0, 255, 0.5);
+	right: 0;
+	bottom: 30px;
+}
+
+#wrapper{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    background-color: #eee;
+}

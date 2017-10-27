@@ -1,5 +1,6 @@
 // standard global variables
 var container, scene, camera, renderer, controls, stats;
+var mesh;
 
 
 window.onload = main;
@@ -108,7 +109,7 @@ function init() {
 
 
     // Add the polygonized implicit to the scene
-    var mesh = MC.polygonize(model, grid_resolution);
+    mesh = MC.polygonize(model, grid_resolution);
     scene.add(mesh);
 
 
