@@ -592,7 +592,7 @@ Primitives.convMesh = function(x, y, z, vect, tri, s, t) {
     return f - T;
 }
 
-Primitives.noiseG(x, y, z, amp, frep, phase) {
+Primitives.noiseG = function(x, y, z, amp, frep, phase) {
     var a2 = amp;
     var a1 = frep;
 
