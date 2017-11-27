@@ -141,7 +141,7 @@ Operations.rSTretch3d = function(x, y, z, x0, sx, sy, sz) {
     return 1.0;
 }
 
-Operations.rTaaperX = function(x, y, z, x1, x2, s1, s2) {
+Operations.rTaperX = function(x, y, z, x1, x2, s1, s2) {
     var scale;
 
     if (x < x1) {
@@ -163,7 +163,7 @@ Operations.rTaaperX = function(x, y, z, x1, x2, s1, s2) {
     return 1.0;
 }
 
-Operations.rTaaperY = function(x, y, z, x1, x2, s1, s2) {
+Operations.rTaperY = function(x, y, z, x1, x2, s1, s2) {
     var scale;
 
     if (y < x1) {
@@ -185,7 +185,7 @@ Operations.rTaaperY = function(x, y, z, x1, x2, s1, s2) {
     return 1.0;
 }
 
-Operations.rTaaperZ = function(x, y, z, x1, x2, s1, s2) {
+Operations.rTaperZ = function(x, y, z, x1, x2, s1, s2) {
     var scale;
 
     if (z < x1) {

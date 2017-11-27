@@ -30,7 +30,7 @@ model.eval = function(x, y, z) {
     center = [0.0, 2.2, -3.3];
     var cap2 = Primitives.ellipsoid(x, y, z, center, 1.4, 3.2, 0.6);
     cap2 = Operations.rSub(cap2, (y - 5.5));
-    var cap3 = Operations.rBUnion(cap1, cap2, 0.1, 0.1, 0.1);
+    var cap3 = Operations.rBlendUni(cap1, cap2, 0.1, 0.1, 0.1);
 
     // tassel
     center = [0.0, -1.5, -3.4];
@@ -120,7 +120,7 @@ center = [0.0, 5.6, 0.7];
 var cheek4 = Primitives.torusZ(px, py, pz, center, 2.0, 0.5);
 cheek4 = Operations.rSub(cheek4, (y - 4.4));
 
-var cheek = Operations.rBUnion(cheek3, cheek4, 0.2, 1.0, 1.0);
+var cheek = Operations.rBlendUni(cheek3, cheek4, 0.2, 1.0, 1.0);
 
     // mouth
     center = [0.0, 2.0, 3.3];
@@ -132,7 +132,7 @@ var cheek = Operations.rBUnion(cheek3, cheek4, 0.2, 1.0, 1.0);
 
     var mouth3 = Operations.rSub(mouth1, mouth2);
     mouth3 = Operations.rUnion(mouth3, cheek4);
-    var mouth = Operations.rBUnion(cheek3, mouth3, 0.3, 0.8, 0.8);
+    var mouth = Operations.rBlendUni(cheek3, mouth3, 0.3, 0.8, 0.8);
 
 // nose
 center = [0.0, 2.7, 0.0];
@@ -232,7 +232,7 @@ arm2 = Operations.rSub(arm2, (pz + 1.6));
     var belly = Operations.rUnion(belly1, belly2);
 
     var body2 = Operations.rUnion(belt, belly);
-    var body = Operations.rBUnion(body1, body2, 1.0, 0.1, 0.1);
+    var body = Operations.rBlendUni(body1, body2, 1.0, 0.1, 0.1);
 
 // leg
 center = [0.0, -4.0, 19.8];
