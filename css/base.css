@@ -32,6 +32,12 @@ button.run {
 	bottom: 30px;
 }
 
+a {
+	font-size: 1.4em;
+	position: absolute;
+	text-decoration: none;
+}
+
 #wrapper{
     display: table-cell;
     text-align: center;
