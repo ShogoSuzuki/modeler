@@ -22,27 +22,65 @@ body
 }
 
 button.run {
-	font-size: 1.4em;
-	font-weight: bold;
-	padding:  10px 30px;
-	border-style: none;
+	display: inline;
 	position: absolute;
-	background: rgba(0, 0, 255, 0.5);
 	right: 0;
 	bottom: 30px;
 }
 
-a {
+button.stl {
+	display: inline;
+	position: absolute;
+	right: 140px;
+	bottom: 30px;
+}
+
+select.mode {
+	position: absolute;
+	right: 245px;
+	bottom: 30px;
+}
+a:hover {
 	font-size: 1.4em;
 	position: absolute;
 	text-decoration: none;
 }
 
-#wrapper{
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    width: 200px;
-    height: 200px;
-    background-color: #eee;
+h2.header {
+	margin: 0;
+	left: 10px;
+	position: absolute;
+	top: 10px;
+}
+
+h2.header2 {
+	margin: 0;
+	left: 10px;
+	position: absolute;
+	top: 100px;
+}
+
+li.link1 {
+	position: absolute;
+	top: 30px;
+}
+
+li.link2 {
+	position: absolute;
+	top: 50px;
+}
+
+li.view1 {
+	position: absolute;
+	top: 110px;
+}
+
+li.view2 {
+	position: absolute;
+	top: 130px;
+}
+
+li.view3 {
+	position: absolute;
+	top: 150px;
 }
