@@ -12,6 +12,8 @@
 
 
   <script src="lib/Three.js"></script>
+  <script src="STLExpoter.js"></script>
+  <script src="OBJExpoter.js"></script>
   <script src="lib/Detector.js"></script>
   <script src="lib/Stats.js"></script>
   <script src="lib/OrbitControls.js"></script>
@@ -306,7 +308,7 @@
     </textarea>
     
     <select name="mode" class="mode">
-        <option value="OFF">OFF</option>
+        <option value="OBJ">OBJ</option>
         <option value="STL">STL</option>
     </select>
     <button class="stl" type="button">Generate STL</button>
@@ -316,8 +318,8 @@
         <h2 class="header">HyperFun Web-Site</h2>
         <nav>
             <ul>
-                <li class="link1"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:main">HyperFun:main</a></li><br>
-                <li class="link2"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:library">HyperFun:Library</a></li>
+                <li class="link1"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:main" target="_blank">HyperFun:main</a></li>
+                <li class="link2"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:library" target="_blank">HyperFun:Library</a></li>
             </ul>
         </nav>
 
@@ -347,12 +349,13 @@
     })
 
     document.querySelector(".stl").addEventListener("click", function() {
-        var text = document.querySelector("#textarea").value;
+        var mode = document.querySelector(".mode > option:checked").value;
 
-        var func_tmp = "function main_model(x, y, z) { {{contents}} }";
-        func_tmp.replace("{{contents}}", text);
-
-
+        if (mode == "STL") {
+            saveSTL(scene, 'model');
+        } else if (mode == "OBJ") {
+            saveOBJ(scene, 'model');
+        }
     })
   </script>
 </body>
