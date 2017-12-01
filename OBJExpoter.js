@@ -30,7 +30,7 @@ THREE.OBJExporter.prototype = {
 
 			if ( geometry instanceof THREE.Geometry ) {
 
-				geometry = new THREE.BufferGeometry().setFromObject( mesh );
+				geometry = new THREE.Box3().setFromObject( mesh );
 
 			}
 
@@ -163,7 +163,7 @@ THREE.OBJExporter.prototype = {
 
 			if ( geometry instanceof THREE.Geometry ) {
 
-				geometry = new THREE.BufferGeometry().setFromObject( line );
+				geometry = new THREE.Box3().setFromObject( line );
 
 			}
 
@@ -171,7 +171,7 @@ THREE.OBJExporter.prototype = {
 
 				// shortcuts
 				var vertices = geometry.getAttribute( 'position' );
-				var indices = geometry.getIndex();
+				var indices = geometry.vertices;
 
 				// name of the line object
 				output += 'o ' + line.name + '\n';
