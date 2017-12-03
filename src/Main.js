@@ -1,6 +1,9 @@
 // standard global variables
 var container, scene, camera, renderer, controls, stats;
-var mesh;
+var mesh, bbox_mesh, bbox_geo, bbox_material;
+var bbox, x_max, x_min, x_range;
+var y_max, y_min, y_range;
+var z_max, z_min, z_range;
 
 
 window.onload = main;
@@ -23,17 +26,17 @@ var grid_resolution = 64;
 // And set the ThreeJS renderer to render the mesh.
 function init() {
     // Domain bounding box
-    var bbox = model.boundingBox();
-    var x_min = bbox["x_min"];
-    var x_max = bbox["x_max"];
-    var y_min = bbox["y_min"];
-    var y_max = bbox["y_max"];
-    var z_min = bbox["z_min"];
-    var z_max = bbox["z_max"];
+    bbox = model.boundingBox();
+    x_min = bbox["x_min"];
+    x_max = bbox["x_max"];
+    y_min = bbox["y_min"];
+    y_max = bbox["y_max"];
+    z_min = bbox["z_min"];
+    z_max = bbox["z_max"];
 
-    var x_range = x_max - x_min;
-    var y_range = y_max - y_min;
-    var z_range = z_max - z_min;
+    x_range = x_max - x_min;
+    y_range = y_max - y_min;
+    z_range = z_max - z_min;
 
 
     // SCENE
@@ -119,9 +122,9 @@ function init() {
 
 
     // Add the bounding box to the object
-    var bbox_geo = new THREE.BoxGeometry(x_range, y_range, z_range);
-    var bbox_material = new THREE.MeshBasicMaterial({color: 0x0000ff, wireframe: true});
-    var bbox_mesh = new THREE.Mesh(bbox_geo, bbox_material);
+    bbox_geo = new THREE.BoxGeometry(x_range, y_range, z_range);
+    bbox_material = new THREE.MeshBasicMaterial({color: 0x0000ff, wireframe: true});
+    bbox_mesh = new THREE.Mesh(bbox_geo, bbox_material);
     scene.add(bbox_mesh);
 }
 

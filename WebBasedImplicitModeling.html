@@ -308,10 +308,10 @@
     </textarea>
     
     <select name="mode" class="mode">
-        <option value="OBJ">OBJ</option>
         <option value="STL">STL</option>
+        <option value="OBJ">OBJ</option>
     </select>
-    <button class="stl" type="button">Generate STL</button>
+    <button class="stl" type="button">Export mesh</button>
     <button class="run" type="button">Run</button>
 
     <header>
@@ -351,11 +351,30 @@
     document.querySelector(".stl").addEventListener("click", function() {
         var mode = document.querySelector(".mode > option:checked").value;
 
+        scene.remove(bbox_mesh);
+
         if (mode == "STL") {
             saveSTL(scene, 'model');
         } else if (mode == "OBJ") {
             saveOBJ(scene, 'model');
         }
+
+        bbox = model.boundingBox();
+        x_min = bbox["x_min"];
+        x_max = bbox["x_max"];
+        y_min = bbox["y_min"];
+        y_max = bbox["y_max"];
+        z_min = bbox["z_min"];
+        z_max = bbox["z_max"];
+
+        x_range = x_max - x_min;
+        y_range = y_max - y_min;
+        z_range = z_max - z_min;
+
+        bbox_geo = new THREE.BoxGeometry(x_range, y_range, z_range);
+        bbox_material = new THREE.MeshBasicMaterial({color: 0x0000ff, wireframe: true});
+        bbox_mesh = new THREE.Mesh(bbox_geo, bbox_material);
+        scene.add(bbox_mesh);
     })
   </script>
 </body>
