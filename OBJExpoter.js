@@ -24,13 +24,14 @@ THREE.OBJExporter.prototype = {
 			var nbNormals = 0;
 			var nbVertexUvs = 0;
 
-			var geometry = mesh.geometry;
+            var geometry = mesh.geometry;
+            var settings = mesh.settings;
 
 			var normalMatrixWorld = new THREE.Matrix3();
 
 			if ( geometry instanceof THREE.Geometry ) {
 
-				geometry = new THREE.Box3().setFromObject( mesh );
+				geometry = new THREE.BufferGeometry().fromGeometry( geometry , settings);
 
 			}
 
@@ -40,7 +41,7 @@ THREE.OBJExporter.prototype = {
 				var vertices = geometry.getAttribute( 'position' );
 				var normals = geometry.getAttribute( 'normal' );
 				var uvs = geometry.getAttribute( 'uv' );
-				var indices = geometry.getIndex();
+				var indices = geometry.center();
 
 				// name of the mesh object
 				output += 'o ' + mesh.name + '\n';
@@ -163,7 +164,7 @@ THREE.OBJExporter.prototype = {
 
 			if ( geometry instanceof THREE.Geometry ) {
 
-				geometry = new THREE.Box3().setFromObject( line );
+				geometry = new THREE.BufferGeometry().setFromObject( line );
 
 			}
 
@@ -171,7 +172,7 @@ THREE.OBJExporter.prototype = {
 
 				// shortcuts
 				var vertices = geometry.getAttribute( 'position' );
-				var indices = geometry.vertices;
+				var indices = geometry.getIndex();
 
 				// name of the line object
 				output += 'o ' + line.name + '\n';
@@ -252,9 +253,9 @@ THREE.OBJExporter.prototype = {
 };
 
  // Use FileSaver.js 'saveAs' function to save the string
- function saveOBJ( scene, name ){  
+ function saveOBJ( mesh, name ){  
     var exporter = new THREE.OBJExporter();
-    var objString = exporter.parse( scene );
+    var objString = exporter.parse( mesh );
     
     var blob = new Blob([objString], {type: 'text/plain'});
     
