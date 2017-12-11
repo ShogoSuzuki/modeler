@@ -318,8 +318,7 @@
         <h2 class="header">HyperFun Web-Site</h2>
         <nav>
             <ul>
-                <li class="link1"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:main" target="_blank">HyperFun:main</a></li>
-                <li class="link2"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:library" target="_blank">HyperFun:Library</a></li>
+                <li class="link1"><a href="http://hyperfun.org/wiki/doku.php?id=hyperfun:library" target="_blank">HyperFun:Library</a></li>
             </ul>
         </nav>
 
@@ -356,7 +355,7 @@
         if (mode == "STL") {
             saveSTL(scene, 'model');
         } else if (mode == "OBJ") {
-            saveOBJ(mesh, 'model');
+            saveOBJ(scene, 'model');
         }
 
         bbox = model.boundingBox();

@@ -18,6 +18,8 @@ THREE.OBJExporter.prototype = {
 
 		var i, j, l, m, face = [];
 
+        var mesh = object.mesh;
+
 		var parseMesh = function ( mesh ) {
 
 			var nbVertex = 0;
@@ -159,12 +161,13 @@ THREE.OBJExporter.prototype = {
 
 			var nbVertex = 0;
 
-			var geometry = line.geometry;
+            var geometry = line.geometry;
+            var settings = line.settings;
 			var type = line.type;
 
 			if ( geometry instanceof THREE.Geometry ) {
 
-				geometry = new THREE.BufferGeometry().setFromObject( line );
+                geometry = new THREE.BufferGeometry().fromGeometry( geometry, settings );
 
 			}
 
@@ -172,7 +175,7 @@ THREE.OBJExporter.prototype = {
 
 				// shortcuts
 				var vertices = geometry.getAttribute( 'position' );
-				var indices = geometry.getIndex();
+				var indices = geometry.center();
 
 				// name of the line object
 				output += 'o ' + line.name + '\n';
@@ -253,9 +256,9 @@ THREE.OBJExporter.prototype = {
 };
 
  // Use FileSaver.js 'saveAs' function to save the string
- function saveOBJ( mesh, name ){  
+ function saveOBJ( scene, name ){
     var exporter = new THREE.OBJExporter();
-    var objString = exporter.parse( mesh );
+    var objString = exporter.parse( scene );
     
     var blob = new Blob([objString], {type: 'text/plain'});
     
