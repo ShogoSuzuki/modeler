@@ -4,6 +4,7 @@ var mesh, bbox_mesh, bbox_geo, bbox_material;
 var bbox, x_max, x_min, x_range;
 var y_max, y_min, y_range;
 var z_max, z_min, z_range;
+var grid_resolution;
 
 
 window.onload = main;
@@ -17,7 +18,7 @@ function main() {
 
 
 // The grid resolution: res * res * res
-var grid_resolution = 64;
+grid_resolution = 64;
 
 
 // Init a regular grid, sample the model,

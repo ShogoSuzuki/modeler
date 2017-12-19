@@ -21,6 +21,83 @@ body
 	font-weight: normal;
 }
 
+#x_max {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#x_min {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#y_max {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#y_min {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#z_max {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#z_min {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 50px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
+#grid_resolution {
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	left: 115px;
+
+	width: 150%;
+	height: 30%;
+	font-weight: normal;
+}
+
 button.run {
 	display: inline;
 	position: absolute;
@@ -35,11 +112,19 @@ button.stl {
 	bottom: 30px;
 }
 
+button.change {
+	display: inline;
+	position: absolute;
+	left: 0;
+	bottom: 250px;
+}
+
 select.mode {
 	position: absolute;
 	right: 245px;
 	bottom: 30px;
 }
+
 a {
 	position: absolute;
 	text-decoration: none;
@@ -57,6 +142,13 @@ h2.header2 {
 	left: 10px;
 	position: absolute;
 	top: 100px;
+}
+
+h2.header3 {
+	margin: 0;
+	left: 10px;
+	position: absolute;
+	top: 200px;
 }
 
 li.link1 {
@@ -77,4 +169,39 @@ li.view2 {
 li.view3 {
 	position: absolute;
 	top: 150px;
+}
+
+li.para1 {
+	position: absolute;
+	top: 210px;
+}
+
+li.para2 {
+	position: absolute;
+	top: 240px;
+}
+
+li.para3 {
+	position: absolute;
+	top: 270px;
+}
+
+li.para4 {
+	position: absolute;
+	top: 300px;
+}
+
+li.para5 {
+	position: absolute;
+	top: 330px;
+}
+
+li.para6 {
+	position: absolute;
+	top: 360px;
+}
+
+li.para7 {
+	position: absolute;
+	top: 390px;
 }
