@@ -334,13 +334,13 @@
         <h2 class="header3">Parameters</h2>
         <nav>
             <ul>
-                <li class="para1"><p>x_max</p><input type="text" id="x_max"/></li>
-                <li class="para2"><p>x_min</p><input type="text" id="x_min"/></li>
-                <li class="para3"><p>y_max</p><input type="text" id="y_max"/></li>
-                <li class="para4"><p>y_min</p><input type="text" id="y_min"/></li>
-                <li class="para5"><p>z_max</p><input type="text" id="z_max"/></li>
-                <li class="para6"><p>z_min</p><input type="text" id="z_min"/></li>
-                <li class="para7"><p>grid_resolution</p><input type="text" id="grid_resolution"/></li>
+                <li class="para1"><p>x min</p><input type="text" id="x_min"/></li>
+                <li class="para2"><p>x max</p><input type="text" id="x_max"/></li>
+                <li class="para3"><p>y min</p><input type="text" id="y_min"/></li>
+                <li class="para4"><p>y max</p><input type="text" id="y_max"/></li>
+                <li class="para5"><p>z min</p><input type="text" id="z_min"/></li>
+                <li class="para6"><p>z max</p><input type="text" id="z_max"/></li>
+                <li class="para7"><p>grid resolution</p><input type="text" id="grid_resolution"/></li>
             </ul>
         </nav>
     </header>
@@ -362,23 +362,16 @@
     })
 
     document.querySelector(".change").addEventListener("click", function() {
-        var x_max = document.querySelector("#x_max").value;
-        var x_min = document.querySelector("#x_min").value;
-        var y_max = document.querySelector("#y_max").value;
-        var y_min = document.querySelector("#y_min").value;
-        var z_max = document.querySelector("#z_max").value;
-        var z_min = document.querySelector("#z_min").value;
-        var grid_resolution = document.querySelector("#grid_resolution").value;
+        var x_max = parseInt(document.querySelector("#x_max").value);
+        var x_min = parseInt(document.querySelector("#x_min").value);
+        var y_max = parseInt(document.querySelector("#y_max").value);
+        var y_min = parseInt(document.querySelector("#y_min").value);
+        var z_max = parseInt(document.querySelector("#z_max").value);
+        var z_min = parseInt(document.querySelector("#z_min").value);
+        var grid_resolution = parseInt(document.querySelector("#grid_resolution").value);
     
         scene.remove(mesh);
         scene.remove(bbox_mesh);
-        eval(x_max);
-        eval(x_min);
-        eval(y_max);
-        eval(y_min);
-        eval(z_max);
-        eval(z_min);
-        eval(grid_resolution);
     
         bbox = model.boundingBox();
         bbox["x_max"] = x_max;
